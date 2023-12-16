@@ -1,0 +1,40 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "ctp-macchiato"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents "
+warning_mem = 70.0
+critical_mem = 90.0
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+info = 90
+good = 80
+warning = 50
+critical = 30
+
+[[block]]
+block = "net"
+device = "wlp2s0"
+format = " $icon {$signal_strength $ssid} on $device "
+
+[[block]]
+block = "pacman"
+signal = 1
+format = " $icon $pacman PAC +$aur AUR "
+format_singular = " $icon $pacman PAC +$aur AUR "
+format_up_to_date = " $icon "
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
+aur_command = "yay -Qua"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
